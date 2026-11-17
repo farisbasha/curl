@@ -610,7 +610,7 @@ static bool multi_conn_should_close(struct connectdata *conn,
 {
   /* if conn->bits.close is TRUE, it means that the connection should be
      closed in spite of everything else. */
-  if(conn->bits.close)
+  if(conn->bits.close || conn->bits.connect_only)
     return TRUE;
 
   /* if data->set.reuse_forbid is TRUE, it means the libcurl client has forced
